@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FuseChatify</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico" />
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700italic,700,900,900italic" rel="stylesheet">
+
+    <!-- STYLESHEETS -->
+    <style type="text/css">
+        [fuse-cloak],
+        .fuse-cloak {
+            display: none !important;
+        }
+    </style>
+
+    <!-- Icons.css -->
+    <link type="text/css" rel="stylesheet" href="/assets/icons/fuse-icon-font/style.css">
+    <!-- Animate.css -->
+    <link type="text/css" rel="stylesheet" href="/assets/node_modules/animate.css/animate.min.css">
+    <!-- PNotify -->
+    <link type="text/css" rel="stylesheet" href="/assets/node_modules/pnotify/dist/PNotifyBrightTheme.css">
+    <!-- Nvd3 - D3 Charts -->
+    <link type="text/css" rel="stylesheet" href="/assets/node_modules/nvd3/build/nv.d3.min.css" />
+    <!-- Perfect Scrollbar -->
+    <link type="text/css" rel="stylesheet" href="/assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css" />
+    <!-- Fuse Html -->
+    <link type="text/css" rel="stylesheet" href="/assets/fuse-html/fuse-html.min.css" />
+    <!-- Main CSS -->
+    <link type="text/css" rel="stylesheet" href="/assets/css/main.css">
+    <!-- / STYLESHEETS -->
+    <!-- JAVASCRIPT -->
+    <!-- jQuery -->
+    <script type="text/javascript" src="/assets/node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- Mobile Detect -->
+    <script type="text/javascript" src="/assets/node_modules/mobile-detect/mobile-detect.min.js"></script>
+    <!-- Perfect Scrollbar -->
+    <script type="text/javascript" src="/assets/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+    <!-- Popper.js -->
+    <script type="text/javascript" src="/assets/node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="/assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Nvd3 - D3 Charts -->
+    <script type="text/javascript" src="/assets/node_modules/d3/d3.min.js"></script>
+    <script type="text/javascript" src="/assets/node_modules/nvd3/build/nv.d3.min.js"></script>
+    <!-- Data tables -->
+    <script type="text/javascript" src="/assets/node_modules/datatables.net/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="/assets/node_modules/datatables-responsive/js/dataTables.responsive.js"></script>
+    <!-- PNotify -->
+    <script type="text/javascript" src="/assets/node_modules/pnotify/dist/iife/PNotify.js"></script>
+    <script type="text/javascript" src="/assets/node_modules/pnotify/dist/iife/PNotifyStyleMaterial.js"></script>
+    <script type="text/javascript" src="/assets/node_modules/pnotify/dist/iife/PNotifyButtons.js"></script>
+    <script type="text/javascript" src="/assets/node_modules/pnotify/dist/iife/PNotifyCallbacks.js"></script>
+    <script type="text/javascript" src="/assets/node_modules/pnotify/dist/iife/PNotifyMobile.js"></script>
+    <script type="text/javascript" src="/assets/node_modules/pnotify/dist/iife/PNotifyHistory.js"></script>
+    <script type="text/javascript" src="/assets/node_modules/pnotify/dist/iife/PNotifyDesktop.js"></script>
+    <script type="text/javascript" src="/assets/node_modules/pnotify/dist/iife/PNotifyConfirm.js"></script>
+    <script type="text/javascript" src="/assets/node_modules/pnotify/dist/iife/PNotifyReference.js"></script>
+    <!-- Fuse Html -->
+    <script type="text/javascript" src="/assets/fuse-html/fuse-html.min.js"></script>
+    <!-- Main JS -->
+    <script type="text/javascript" src="/assets/js/main.js"></script>
+    <!-- / JAVASCRIPT -->
+    <style>
+        #loading {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: #ddd;
+            z-index: 2000;
+            overflow: hidden;
+            opacity: .5;
+        }
+
+            #loading img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+            }
+    </style>
+</head>
+<body class="layout layout-vertical layout-left-navigation layout-above-toolbar layout-above-footer">
+    <div id="loading">
+        <img src="~/images/square-block.gif" />
+    </div>
+    <main>
+        <nav id="toolbar" class="bg-white">
+
+            <div class="row no-gutters align-items-center flex-nowrap">
+
+                <div class="col">
+
+                    <div class="row no-gutters align-items-center flex-nowrap">
+
+                        <button type="button" class="toggle-aside-button btn btn-icon d-block d-lg-none" data-fuse-bar-toggle="aside">
+                            <i class="icon icon-menu"></i>
+                        </button>
+
+                        <div class="toolbar-separator d-block d-lg-none"></div>
+
+                        <div class="shortcuts-wrapper row no-gutters align-items-center px-0 px-sm-2">
+
+                            <div class="shortcuts row no-gutters align-items-center d-none d-md-flex">
+
+                                <a href="javascript:void(0);" class="shortcut-button btn btn-icon mx-1">
+                                    <i class="icon icon-hangouts"></i>
+                                </a>
+
+                                <a href="javascript:void(0);" class="shortcut-button btn btn-icon mx-1">
+                                    <i class="icon icon-account-box"></i>
+                                </a>
+
+                                <a href="javascript:void(0);" class="shortcut-button btn btn-icon mx-1">
+                                    <i class="icon icon-email"></i>
+                                </a>
+
+                            </div>
+
+                            <div class="add-shortcut-menu-button dropdown px-1 px-sm-3">
+
+                                <div class="dropdown-toggle btn btn-icon" role="button" id="dropdownShortcutMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="icon icon-star text-amber-600"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="toolbar-separator"></div>
+
+                    </div>
+                </div>
+
+                <div class="col-auto">
+
+                    <div class="row no-gutters align-items-center justify-content-end">
+
+                        <div class="user-menu-button dropdown">
+
+                            <div class="dropdown-toggle ripple row align-items-center no-gutters px-2 px-sm-4" role="button" id="dropdownUserMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="avatar-wrapper">
+                                    <img class="avatar" src="/assets/images/avatars/profile.jpg">
+                                    <i class="status text-green icon-checkbox-marked-circle s-4"></i>
+                                </div>
+                                <span class="username mx-3 d-none d-md-block">Hello @User.Identity.Name!</span>
+                            </div>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownUserMenu">
+                                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                    <button type="submit" class="dropdown-item">
+                                        <div class="row no-gutters align-items-center flex-nowrap">
+                                            <i class="icon-logout"></i>
+                                            <span class="px-3">Logout</span>
+                                        </div>
+                                    </button>
+                                </form>
+
+                            </div>
+                        </div>
+
+                        <div class="toolbar-separator"></div>
+
+                        <button type="button" class="search-button btn btn-icon">
+                            <i class="icon icon-magnify"></i>
+                        </button>
+
+                        <div class="toolbar-separator"></div>
+
+                        <button type="button" class="quick-panel-button btn btn-icon" data-fuse-bar-toggle="quick-panel-sidebar">
+                            <i class="icon icon-format-list-bulleted"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div id="wrapper">
+            @RenderBody()
+        </div>
+    </main>
+    <script>
+        function notifyInfo(message) {
+            PNotify.info({
+                text: message
+            })
+        }
+        function notifySuccess(message) {
+            PNotify.success({
+                text: message
+            })
+        }
+        function notifyError(message) {
+            PNotify.error({
+                text: message
+            })
+        }
+        function showLoader() {
+            $('#loading').show();
+        }
+        function hideLoader() {
+            $('#loading').hide();
+        }
+    </script>
+</body>
+</html>

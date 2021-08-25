@@ -1,0 +1,242 @@
+﻿@{
+    ViewData["Title"] = "Chat";
+}
+
+<style>
+    .chat-contact-is-typing {
+        margin-left: 10px;
+        color: green;
+    }
+</style>
+
+<div class="content-wrapper">
+    <div class="content custom-scrollbar">
+
+        <div id="chat" class="page-layout carded full-width">
+
+            <div class="top-bg bg-primary"></div>
+
+            <!-- CONTENT -->
+            <div class="page-content-wrapper w-100 mx-auto px-0 pt-0 pt-sm-4 px-sm-4 pt-sm-8">
+
+                <div class="page-content-card">
+
+                    <aside class="left-sidebar" data-fuse-bar="chat-left-sidebar" data-fuse-bar-media-step="lg">
+
+                        <div id="chat-left-sidebar-views" class="views">
+
+                            <div id="chats-view" class="view d-flex flex-column no-gutters">
+                                <!-- CHATS TOOLBAR -->
+                                <div class="toolbar">
+
+                                    <!-- TOOLBAR TOP -->
+                                    <div class="toolbar-top row no-gutters align-items-center justify-content-between px-4">
+
+                                        <!-- USER AVATAR WRAPPER -->
+                                        <div class="avatar-wrapper">
+
+                                            <!-- USER AVATAR -->
+                                            <img id="user-avatar-button" src="/assets/images/avatars/profile.jpg" class="avatar" alt="John Doe" />
+                                            <!-- / USER AVATAR -->
+                                            <!-- USER STATUS -->
+                                            <i class="icon- status online s-4"></i>
+                                            <!-- / USER STATUS -->
+
+                                        </div>
+                                        <!-- / USER AVATAR -->
+
+                                        <button type="button" class="btn btn-icon">
+                                            <i class="icon icon-dots-vertical"></i>
+                                        </button>
+                                    </div>
+                                    <!-- / TOOLBAR TOP -->
+                                    <!-- TOOLBAR BOTTOM -->
+                                    <div class="toolbar-bottom row align-items-center no-gutters px-4">
+
+                                        <!-- SEARCH -->
+                                        <div class="search-wrapper md-elevation-1 row no-gutters align-items-center w-100 p-2">
+                                            <i class="icon-magnify s-4"></i>
+                                            <input class="col pl-2" type="text" placeholder="Search or start new chat">
+                                        </div>
+                                        <!-- / SEARCH -->
+                                    </div>
+                                    <!-- / TOOLBAR BOTTOM -->
+
+                                </div>
+                                <!-- / CHATS TOOLBAR -->
+                                <!-- CHATS CONTENT -->
+                                <div class="content col custom-scrollbar">
+
+                                    <div class="chat-list users-friend-list">
+                                    </div>
+                                </div>
+                                <!-- / CHATS CONTENT -->
+                                <!-- CONTACTS BUTTON -->
+                                <button id="contacts-button" type="button" class="btn btn-fab btn-secondary a-align-bottom-right m-2" aria-label="contacts button">
+                                    <i class="icon icon-plus"></i>
+                                </button>
+                                <!-- / CONTACTS BUTTON -->
+                            </div>
+
+                            <div id="contacts-view" class="view d-none flex-column no-gutters">
+                                <!-- CONTACTS TOOLBAR -->
+                                <div class="toolbar bg-secondary text-auto">
+
+                                    <!-- TOOLBAR TOP -->
+                                    <div class="toolbar-top row no-gutters align-items-center px-4">
+
+                                        <button type="button" class="back-to-chats-button btn btn-icon" aria-label="back button">
+                                            <i class="icon icon-arrow-left"></i>
+                                        </button>
+
+                                        <span class="h6">CONTACTS</span>
+                                    </div>
+                                    <!-- / TOOLBAR TOP -->
+                                    <!-- TOOLBAR BOTTOM -->
+                                    <div class="toolbar-bottom row align-items-center no-gutters px-4">
+
+                                        <div class="search-wrapper md-elevation-1 row no-gutters align-items-center w-100 p-2">
+                                            <i class="icon-magnify s-4"></i>
+                                            <input class="col pl-2" type="text" placeholder="Search contact">
+                                        </div>
+                                    </div>
+                                    <!-- / TOOLBAR BOTTOM -->
+                                </div>
+                                <!-- / CONTACTS TOOLBAR -->
+                                <!-- CONTACTS CONTENT -->
+                                <div class="content col custom-scrollbar">
+
+                                    <div class="contact-list append-user-contact-list">
+                                    </div>
+                                </div>
+                                <!-- / CONTACTS CONTENT -->
+                            </div>
+
+                            <div id="user-view" class="view d-none flex-column no-gutters">
+                                <!-- CONTACTS TOOLBAR -->
+                                <div class="toolbar bg-secondary text-auto d-flex flex-column no-gutters">
+
+                                    <!-- TOOLBAR TOP -->
+                                    <div class="toolbar-top row no-gutters align-items-center px-4">
+
+                                        <button type="button" class="back-to-chats-button btn btn-icon" aria-label="back button">
+                                            <i class="icon icon-arrow-left"></i>
+                                        </button>
+                                    </div>
+                                    <!-- / TOOLBAR TOP -->
+                                    <!-- TOOLBAR BOTTOM -->
+                                    <div class="toolbar-bottom col d-flex flex-column align-items-center justify-content-center">
+
+                                        <img src="/assets/images/avatars/profile.jpg" class="avatar huge" alt="John Doe" />
+
+                                        <div class="user-name h4 my-2">@User.Identity.Name</div>
+
+                                    </div>
+                                    <!-- / TOOLBAR BOTTOM -->
+                                </div>
+                                <!-- / CONTACTS TOOLBAR -->
+                            </div>
+
+                        </div>
+                    </aside>
+
+                    <div class="page-content">
+
+                        <div id="chat-content-views" class="views">
+
+                            <!-- START -->
+                            <div id="start-view" class="view d-flex flex-column align-items-center justify-content-center">
+                                <div class="big-circle md-elevation-4 row align-items-center justify-content-center no-gutters">
+
+                                    <i class="s-32 text-secondary icon-hangouts"></i>
+
+                                </div>
+
+                                <span class="app-title h3 my-3">Chat App</span>
+
+                                <span class="text-muted h6 d-none d-xl-block">Select contact to start the chat!..</span>
+
+                                <button type="button" class="btn btn-secondary d-block d-xl-none" data-fuse-bar-toggle="chat-left-sidebar">
+                                    Select contact to start the chat!..
+                                </button>
+
+                            </div>
+                            <!-- / START -->
+                            <!-- CHAT -->
+                            <div id="chat-view" class="view flex-column align-items-center justify-content-center d-none">
+                                <!-- CHAT TOOLBAR -->
+                                <div class="toolbar row no-gutters align-items-center justify-content-between w-100 px-4">
+
+                                    <div class="col">
+
+                                        <div class="row no-gutters align-items-center">
+
+                                            <!-- RESPONSIVE CHATS BUTTON-->
+                                            <button type="button" class="btn btn-icon" data-fuse-bar-toggle="chat-left-sidebar">
+                                                <i class="icon icon-hangouts s-8"></i>
+                                            </button>
+                                            <!-- / RESPONSIVE CHATS BUTTON-->
+                                            <!-- CHAT CONTACT-->
+                                            <div class="chat-contact row no-gutters align-items-center">
+
+                                                <div class="avatar-wrapper mr-4">
+                                                    <img src="/assets/images/avatars/profile.jpg" class="avatar" alt="Barrera" />
+                                                </div>
+
+                                                <div class="chat-contact-name"></div>
+                                                <div class="chat-contact-is-typing"></div>
+                                            </div>
+                                            <!-- / CHAT CONTACT-->
+
+                                        </div>
+                                    </div>
+
+                                    <button type="button" class="btn btn-icon">
+                                        <i class="icon icon-dots-vertical"></i>
+                                    </button>
+                                </div>
+                                <!-- / CHAT TOOLBAR -->
+                                <!-- CHAT CONTENT -->
+                                <div class="chat-content col custom-scrollbar scrolldata">
+
+                                    <div class="chat-messages user-chat-messages">
+                                    </div>
+                                </div>
+                                <!-- / CHAT CONTENT -->
+                                <!-- CHAT FOOTER -->
+                                <div class="chat-footer row align-items-center justify-content-center w-100 p-2 pl-4">
+
+                                    <!-- REPLY FORM -->
+                                    <form class="reply-form row no-gutters align-items-center w-100">
+
+                                        <div class="form-group col mr-4">
+                                            <input type="text" class="form-control" id="messageTextArea" placeholder="Type and hit enter to send message" />
+                                        </div>
+
+                                        <button type="button" class="btn btn-fab btn-secondary" id="btnSendMessage" aria-label="Send message">
+                                            <i class="icon icon-send"></i>
+                                        </button>
+
+                                    </form>
+                                    <!-- / REPLY FORM -->
+                                </div>
+                                <!-- / CHAT FOOTER-->
+                            </div>
+                            <!-- / CHAT -->
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- / CONTENT -->
+        </div>
+        <script>
+            const currentUserId = "@ViewBag.UserId";
+        </script>
+        <script type="text/javascript" src="/signalr/signalr.js"></script>
+        <script type="text/javascript" src="/assets/js/apps/chat/chat.js" asp-append-version="true"></script>
+        <script src="~/js/SignalrRequestHandler.js" asp-append-version="true"></script>
+
+    </div>
+</div>

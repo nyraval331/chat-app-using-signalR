@@ -1,0 +1,57 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+<div class="form-wrapper col-12 col-md-auto d-flex justify-content-center p-4 p-md-0">
+
+    <div class="form-content md-elevation-8 h-100 bg-white text-auto py-16 py-md-32 px-12">
+
+        <div class="title h5">Create account</div>
+
+        <form name="registerForm" asp-route-returnUrl="@Model.ReturnUrl" class="mt-8">
+
+            <div class="form-group mb-4">
+                <input type="text" class="form-control" id="UserName" name="UserName" aria-describedby="nameHelp" />
+                <label for="UserName">User Name</label>
+            </div>
+
+            <div class="form-group mb-4">
+                <input type="email" class="form-control" id="Email" name="Email" aria-describedby="emailHelp" />
+                <label for="Email">Email address</label>
+            </div>
+
+            <div class="form-group mb-4">
+                <input type="password" class="form-control" id="Password" name="Password" />
+                <label for="Password">Password</label>
+            </div>
+
+            <div class="form-group mb-4">
+                <input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword" />
+                <label for="ConfirmPassword">Password (Confirm)</label>
+            </div>
+
+            <div class="terms-conditions row align-items-center justify-content-center pt-4 mb-8">
+                <div class="form-check mr-1 mb-1">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" aria-label="Remember Me" />
+                        <span class="checkbox-icon"></span>
+                        <span>I read and accept</span>
+                    </label>
+                </div>
+                <a href="#" class="text-secondary mb-1">terms and conditions</a>
+            </div>
+
+            <button type="submit" class="submit-button btn btn-block btn-secondary my-4 mx-auto" aria-label="LOG IN">
+                CREATE MY ACCOUNT
+            </button>
+
+        </form>
+
+        <div class="login d-flex flex-column flex-sm-row align-items-center justify-content-center mt-8 mb-6 mx-auto">
+            <span class="text mr-sm-2">Already have an account?</span>
+            <a class="link text-secondary" href="/Identity/Account/Login">Log in</a>
+        </div>
+
+    </div>
+</div>
